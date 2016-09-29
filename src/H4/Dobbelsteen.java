@@ -6,6 +6,7 @@ import java.applet.*;
 public class Dobbelsteen extends Applet {
 
     public void init() {
+        //test
     }
 
     public void paint(Graphics g) {
