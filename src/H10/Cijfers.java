@@ -7,7 +7,7 @@ import java.awt.event.*;
 
 public class Cijfers extends Applet {
     private TextField tekstvak;
-    private String s, tekst;
+    private String tekst;
 
     public void init() {
         tekstvak = new TextField("", 20);
@@ -24,7 +24,7 @@ public class Cijfers extends Applet {
 
     private class TekstvakListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            s = tekstvak.getText();
+            String s = tekstvak.getText();
             int cijfer = Integer.parseInt(s);
             switch(cijfer) {
                 case 1:

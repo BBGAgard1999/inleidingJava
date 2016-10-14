@@ -7,23 +7,9 @@ import java.awt.event.*;
 
 public class VoldoendeOfOnvoldoende extends Applet {
 
-    double wiscijfer;
-    double nlcijfer;
-    double encijfer;
-    double ecocijfer;
-    double gemiddelde;
-    double uitkomst;
-    Button ok;
-    TextField tekstvak;
-    TextField tekstvak2;
-    TextField tekstvak3;
-    TextField tekstvak4;
-    Label label;
-    String wis;
-    String nl;
-    String en;
-    String eco;
-    String eindcijfer;
+    private double uitkomst;
+    private TextField tekstvak, tekstvak2, tekstvak3, tekstvak4;
+    private String wis, nl, en, eco, eindcijfer;
 
     public void init() {
         tekstvak = new TextField("", 5);
@@ -34,7 +20,7 @@ public class VoldoendeOfOnvoldoende extends Applet {
         tekstvak3.addActionListener( new VakListener() );
         tekstvak4 = new TextField("", 5);
         tekstvak4.addActionListener( new VakListener() );
-        ok = new Button("Ok");
+        Button ok = new Button("Ok");
         VakListener kl = new VakListener();
         ok.addActionListener( kl );
         wis = "";
@@ -42,8 +28,8 @@ public class VoldoendeOfOnvoldoende extends Applet {
         en = "";
         eco = "";
         eindcijfer = "";
-        label = new Label("Type je cijfers in de tekstvakken (cijfers zijn 1 t/m 10)" );
-        add( label );
+        Label label = new Label("Type je cijfers in de tekstvakken (cijfers zijn 1 t/m 10)");
+        add(label);
         add( tekstvak );
         add( tekstvak2 );
         add( tekstvak3 );
@@ -60,7 +46,7 @@ public class VoldoendeOfOnvoldoende extends Applet {
         g.drawString("Eindcijfer: " + eindcijfer, 50, 120 );
     }
 
-    class VakListener implements ActionListener {
+    private class VakListener implements ActionListener {
         public void actionPerformed( ActionEvent e ) {
             String s;
             String d;
@@ -71,14 +57,14 @@ public class VoldoendeOfOnvoldoende extends Applet {
             d = tekstvak2.getText();
             f = tekstvak3.getText();
             g = tekstvak4.getText();
-            wiscijfer = Double.parseDouble( s );
-            nlcijfer = Double.parseDouble( d );
-            encijfer = Double.parseDouble( f );
-            ecocijfer = Double.parseDouble( g );
+            double wiscijfer = Double.parseDouble(s);
+            double nlcijfer = Double.parseDouble(d);
+            double encijfer = Double.parseDouble(f);
+            double ecocijfer = Double.parseDouble(g);
 
-            gemiddelde = (wiscijfer + nlcijfer + encijfer + ecocijfer) / 4;
+            double gemiddelde = (wiscijfer + nlcijfer + encijfer + ecocijfer) / 4;
             int i = (int) (gemiddelde * 10);
-            uitkomst= (double) i / 10;
+            uitkomst = (double) i / 10;
 
             if ( wiscijfer > 5.5 ) {
                 wis = "Voldoende";
