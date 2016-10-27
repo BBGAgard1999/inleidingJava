@@ -8,13 +8,13 @@ public class Schaakbord extends Applet {
     public void paint(Graphics g) {
 
         g.drawLine(49, 49, 290, 49);
-        g.drawLine(49, 260,290, 260);
-        g.drawLine(49, 49,49, 260);
-        g.drawLine(290, 49,290, 260);
+        g.drawLine(49, 290,290, 290);
+        g.drawLine(49, 49,49, 290);
+        g.drawLine(290, 49,290, 290);
 
         int y = 20;
 
-        for (int rij = 0; rij < 7; rij++) {
+        for (int rij = 0; rij < 8; rij++) {
             y += 30;
             int x = 50;
             for (int kolom = 0; kolom < 8; kolom++) {
