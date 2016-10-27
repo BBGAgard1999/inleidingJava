@@ -6,7 +6,6 @@ import java.applet.*;
 public class Schaakbord extends Applet {
 
     public void paint(Graphics g) {
-
         g.drawLine(49, 49, 290, 49);
         g.drawLine(49, 290,290, 290);
         g.drawLine(49, 49,49, 290);
