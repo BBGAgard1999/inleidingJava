@@ -60,16 +60,19 @@ public class Smiley extends Applet {
             aantal = "";
             afbeeldingen = 0;
             resultaat = getImage(pad, einde + ".png");
-            g.drawImage(resultaat, 50, 50, 150, 150, this);
+            g.drawImage(resultaat,
+                    -100+(getWidth()/2-resultaat.getWidth(this)/2),
+                    -125+(getHeight()/2-resultaat.getHeight(this)/2),
+                    150, 150, this);
         }
         int iAfbeeldingen = 0;
         Image afbeelding = getImage(pad, soort + ".png");
-        for (int iRow = -2; iRow <= 3; iRow++) {
-            for (int iCol = -2; iCol <= 1; iCol++) {
+        for (int rij = -2; rij <= 3; rij++) {
+            for (int kolom = -2; kolom <= 1; kolom++) {
                 if (iAfbeeldingen < afbeeldingen) {
                     g.drawImage(afbeelding,
-                            (iCol*50)+(getWidth()/2-afbeelding.getWidth(this)/2),
-                            (iRow*75)+(getHeight()/2-afbeelding.getHeight(this)/2),
+                            (kolom*50)+(getWidth()/2-afbeelding.getWidth(this)/2),
+                            (rij*75)+(getHeight()/2-afbeelding.getHeight(this)/2),
                             afbeelding.getWidth(this), afbeelding.getHeight(this), this
                     );
                 }
@@ -82,35 +85,35 @@ public class Smiley extends Applet {
     private class KnopListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if (!gewonnen && !verloren) {
-                int cpuGems;
-                int inputInt = Integer.parseInt(tekstvak.getText());
-                if (inputInt >= 1 && inputInt <= 3) {
-                    afbeeldingen -= inputInt;
+                int computer;
+                int invoerGetal = Integer.parseInt(tekstvak.getText());
+                if (invoerGetal >= 1 && invoerGetal <= 3) {
+                    afbeeldingen -= invoerGetal;
                     if (Objects.equals(soort, "blij") && afbeeldingen < 1) {
                         verloren = true;
                     }
                     if ((afbeeldingen-1)%4 != 0) {
-                        cpuGems = 1+((afbeeldingen-1)%4-1);
-                        afbeeldingen -= cpuGems;
+                        computer = 1+((afbeeldingen-1)%4-1);
+                        afbeeldingen -= computer;
                         soort = "blij";
                         einde = "haha";
                     }
                     else {
-                        cpuGems = (int)(Math.random()*3+1);
-                        afbeeldingen -= cpuGems;
+                        computer = (int)(Math.random()*3+1);
+                        afbeeldingen -= computer;
                     }
                     if (afbeeldingen < 1 && !verloren) {
                         gewonnen = true;
                     }
-                    if (cpuGems == 1) {
+                    if (computer == 1) {
                         kleur = Color.black;
-                        weggehaald = "De computer heeft "+ cpuGems +" smileys weggehaald.";
+                        weggehaald = "De computer heeft "+ computer +" smileys weggehaald.";
                         aantal = "Aantal smileys: "+ afbeeldingen +" . Jouw beurt";
                         y = 55;
                     }
                     else {
                         kleur = Color.black;
-                        weggehaald = "De computer heeft "+ cpuGems +" smileys weggehaald.";
+                        weggehaald = "De computer heeft "+ computer +" smileys weggehaald.";
                         aantal = "Aantal smileys: "+ afbeeldingen +" . Jouw beurt";
                         y = 55;
                     }
