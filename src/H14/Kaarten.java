@@ -29,7 +29,7 @@ public class Kaarten extends Applet {
         URL pad = Kaarten.class.getResource("/resources/");
         sound = getAudioClip(pad, "applaus.wav");
         setSize(546, 300);
-        Button knop = new Button("Deel kaart");
+        Button knop = new Button("Deel kaarat");
         knop.addActionListener(new Listener());
         add(knop);
     }
